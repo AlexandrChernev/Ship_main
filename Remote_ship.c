@@ -1,6 +1,6 @@
 #include"remote_ship.h"
 
-volatile timer_t timer[TIMER_NUM];//определяем массив таймеров
+volatile timer_t timer[TIMER_NUM];//Г®ГЇГ°ГҐГ¤ГҐГ«ГїГҐГ¬ Г¬Г Г±Г±ГЁГў ГІГ Г©Г¬ГҐГ°Г®Гў
 uint8_t m_buf[32];
 uint8_t p;
 uint8_t string0[]="TX buffer is full!";
@@ -8,7 +8,7 @@ uint8_t string1[]="TX buffer is EMPTY.Transieve start.OK!";
 
 void init(void)
 {
-	timer16_init(TIMER_NUM,timer);//запуск аппаратного таймера,передача указателя
+	timer16_init(TIMER_NUM,timer);//Г§Г ГЇГіГ±ГЄ Г ГЇГЇГ Г°Г ГІГ­Г®ГЈГ® ГІГ Г©Г¬ГҐГ°Г ,ГЇГҐГ°ГҐГ¤Г Г·Г  ГіГЄГ Г§Г ГІГҐГ«Гї
 	spi_init();
 	rf_init(m_buf,32);
 	usart_init(UBRR_VAL);
@@ -19,7 +19,7 @@ int main(void)
 	cli();
 	init();
 	timer_on(200,4,1);
-	rf_assert_ce();//активируем,в данном случае,режим приёма
+	rf_assert_ce();//Г ГЄГІГЁГўГЁГ°ГіГҐГ¬,Гў Г¤Г Г­Г­Г®Г¬ Г±Г«ГіГ·Г ГҐ,Г°ГҐГ¦ГЁГ¬ ГЇГ°ГЁВёГ¬Г 
 	sei();
 	while(1)
 	{
@@ -32,6 +32,6 @@ int main(void)
 			if(p){p=0;m_buf[1]=1;}
 			else {p=1;m_buf[1]=0;}
 		}
-		// TODO здесь основной код программы
+		// TODO Г§Г¤ГҐГ±Гј Г®Г±Г­Г®ГўГ­Г®РїРїСЂСЂГ© ГЄГ®Г¤ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»
 	}
 }
